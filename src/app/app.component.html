@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    Hello {{ name }}
+  </h1>
+  <h1>
+    {{ courseName }}
+  </h1>
+  <ul>
+    <div *ngFor="let student of students">
+      <li *ngIf="student.gpa > 2.2">
+        <h2>{{ student.studentId }}</h2>
+        <p>{{ student.name | uppercase }} {{ student.surname }}</p>
+        <p *ngIf="student.gpa > 2.5">Good Student who get grade {{ student.gpa | number: '1.2-2' }}</p>
+        <p *ngIf="student.gpa <= 2.5">Bad Student who get grade {{ student.gpa | number: '1.2-2' }}</p>
+      </li>
+    </div>
+  </ul>
+  <p>The average gpa is {{ averageGpa() | number: '1.4-4' }}</p>
+  <app-time></app-time>
+</div>
